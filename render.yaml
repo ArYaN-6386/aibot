@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aibot-backend
+    env: node
+    rootDir: backend
+    buildCommand: bun install && bunx prisma generate
+    startCommand: bun run index.ts
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: OLLAMA_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
